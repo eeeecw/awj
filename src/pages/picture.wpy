@@ -1,0 +1,79 @@
+<template>
+  <view class="container">
+    <image class="img" mode="widthFix" wx:if="{{ currentPage }}" src="{{ host + currentPage }}.gif"></image>
+    <!-- <i-input-number class="page" value="{{ currentPage }}" min="1" max="61" bindchange="handleChangeInput" /> -->
+    <i-tab-bar class="tab-bar" current="{{ currentTabBar }}" bindchange="handleChangeTabBar">
+      <i-tab-bar-item key="music" icon="remind" current-icon="remind_fill" title="催眠曲"></i-tab-bar-item>
+      <i-tab-bar-item key="picture" icon="picture" current-icon="picture_fill" title="催眠图"></i-tab-bar-item>
+    </i-tab-bar>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '安稳觉小程序',
+      usingComponents: {
+        'i-page': '../iview/page/index',
+        'i-input-number': '../iview/input-number/index',
+        'i-tab-bar': '../iview/tab-bar/index',
+        'i-tab-bar-item': '../iview/tab-bar-item/index'
+      }
+    }
+
+    mixins = []
+
+    data = {
+      host: 'https://6177-awj-1258833783.tcb.qcloud.la/gif/',
+      currentPage: 1,
+      currentTabBar: 'picture'
+    }
+
+    computed = {}
+
+    methods = {
+      handleChangePage ({ detail }) {
+        if (detail.type === 'next') {
+          this.currentPage++
+        } else {
+          this.currentPage--
+        }
+      },
+
+      handleChangeInput ({ detail }) {
+        this.currentPage = detail.value
+      },
+
+      handleChangeTabBar ({ detail }) {
+        if (detail.key === 'picture') {
+          wx.redirectTo({url: 'music'})
+        }
+      }
+    }
+
+    events = {}
+
+    onLoad() {}
+  }
+</script>
+
+<style lang="less">
+  .page {
+    width: 700rpx;
+    position: fixed;
+    bottom: 10rpx;
+  }
+  .img{
+    width: 100%;
+    margin-top: 100rpx;
+    margin-bottom: 50px;
+  }
+  .tab-bar{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+</style>

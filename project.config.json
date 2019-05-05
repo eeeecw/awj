@@ -1,0 +1,17 @@
+{
+	"description": "A WePY project",
+	"setting": {
+		"urlCheck": true,
+		"es6": false,
+		"postcss": false,
+		"minified": false,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"appid": "wx95a98755986436f3",
+	"projectname": "anwenjue",
+	"miniprogramRoot": "dist/",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {}
+}

@@ -1,0 +1,180 @@
+<template>
+  <view>
+    <view class="body">
+      <view class="circle"></view>
+      <view class="circle"></view>
+      <view class="circle"></view>
+      <view class="circle"></view>
+    </view>
+    <scroll-view class="music-list" scroll-y>
+      <view>
+        <i-icon type="play" size="24"/>
+        <text>测试</text>
+      </view>
+      <view>
+        <i-icon type="play" size="24"/>
+        <text>测试</text>
+      </view>
+      <view>
+        <i-icon type="play" size="24"/>
+        <text>测试</text>
+      </view>
+      <view>
+        <i-icon type="play" size="24"/>
+        <text>测试</text>
+      </view>
+      <view>
+        <i-icon type="play" size="24"/>
+        <text>测试</text>
+      </view>
+      <view>
+        <i-icon type="play" size="24"/>
+        <text>测试</text>
+      </view>
+      <view>
+        <i-icon type="play" size="24"/>
+        <text>测试</text>
+      </view>
+      <view>
+        <i-icon type="play" size="24"/>
+        <text>测试</text>
+      </view>
+      <ad unit-id="adunit-01623b2321f3f172"></ad>
+      <view>
+        <i-icon type="play" size="24"/>
+        <text>测试</text>
+      </view>
+      <view>
+        <i-icon type="play" size="24"/>
+        <text>测试</text>
+      </view>
+      <view>
+        <i-icon type="play" size="24"/>
+        <text>测试</text>
+      </view>
+      <view>
+        <i-icon type="play" size="24"/>
+        <text>测试</text>
+      </view>
+      <view>
+        <i-icon type="play" size="24"/>
+        <text>测试</text>
+      </view>
+      <view>
+        <i-icon type="play" size="24"/>
+        <text>测试</text>
+      </view>
+      <view>
+        <i-icon type="play" size="24"/>
+        <text>测试</text>
+      </view>
+      <view>
+        <i-icon type="play" size="24"/>
+        <text>测试</text>
+      </view>
+    </scroll-view>
+    <i-tab-bar class="tab-bar" current="{{ currentTabBar }}" bindchange="handleChangeTabBar">
+      <i-tab-bar-item key="music" icon="remind" current-icon="remind_fill" title="催眠曲"></i-tab-bar-item>
+      <i-tab-bar-item key="picture" icon="picture" current-icon="picture_fill" title="催眠图"></i-tab-bar-item>
+    </i-tab-bar>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '催眠音乐',
+      usingComponents: {
+        'i-icon': '../iview/icon/index',
+        'i-tab-bar': '../iview/tab-bar/index',
+        'i-tab-bar-item': '../iview/tab-bar-item/index'
+      }
+    }
+
+    data = {
+      currentTabBar: 'music'
+    }
+
+    methods = {
+      handleChangeTabBar ({ detail }) {
+        if (detail.key === 'picture') {
+          wx.redirectTo({url: 'picture'})
+        }
+      }
+    }
+  }
+</script>
+
+<style scoped lang="less">
+.body{
+  position: absolute;
+  height: 464rpx;
+  width: 100%;
+  background-image: url('https://6177-awj-1258833783.tcb.qcloud.la/assets/image/bg.gif?sign=0377df394463b3348e4f8a1a821b3168&t=1556986409');
+  background-size:100% 138%;
+  .circle {
+    position: absolute;
+    margin: auto;
+    top: 80rpx;
+    right: 0;
+    bottom: 80rpx;
+    left: 0;
+    border-radius: 50%;
+    background: rgba(138, 43, 226, 0.02);
+  }
+  .circle:nth-of-type(1) {
+    width: 300rpx;
+    height: 270rpx;
+    animation: rt 4s infinite linear;
+    box-shadow: 0 0 1px 0 blueviolet, inset 0 0 10px 0 blueviolet;
+  }
+  .circle:nth-of-type(2) {
+    width: 270rpx;
+    height: 300rpx;
+    animation: rt 6s infinite linear;
+    box-shadow: 0 0 1px 0 darkviolet, inset 0 0 10px 0 darkviolet;
+  }
+  .circle:nth-of-type(3) {
+    width: 315rpx;
+    height: 285rpx;
+    animation: rt 3s infinite linear;
+    box-shadow: 0 0 1px 0 darkmagenta, inset 0 0 10px 0 darkmagenta;
+  }
+  .circle:nth-of-type(4) {
+    width: 285rpx;
+    height: 315rpx;
+    animation: rt 10s infinite linear;
+    box-shadow: 0 0 1px 0 magenta, inset 0 0 10px 0 magenta;
+  }
+  @keyframes rt {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+}
+.music-list{
+  position: fixed;
+  top: 465rpx;
+  bottom: 50px;
+  padding: 15rpx 15rpx;
+  box-sizing: border-box;
+  view{
+    width: 180rpx;
+    height: 130rpx;
+    float: left;
+    text-align: center;
+    text{
+      font-size: 14px;
+      display: block;
+    }
+  }
+}
+.tab-bar{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+</style>
